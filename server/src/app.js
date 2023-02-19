@@ -1,4 +1,3 @@
-// requires path module from npm
 const path  = require('path');
 // requires express module from npm
 const express = require('express');
@@ -7,10 +6,7 @@ const cors = require('cors');
 // requires morgan module from npm
 const morgan = require('morgan');
 
-// calls the planetsRouter function from the routes/planets/planets.router
-const planetsRouter = require('./routes/planets/planets.router');
-// calls the launchesRouter function from the routes/launches/launches.router
-const launchesRouter = require('./routes/launches/launches.router');
+const api = require('./routes/api');
 
 // assigns the app constant to express
 const app = express();
@@ -29,11 +25,8 @@ app.use(express.json());
 // using the express.static() function to serve static files and using the path.join() function to call the file from the public folder
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-// calls and uses the planetsRouter function from the planets/planets.router
-app.use('/planets',planetsRouter);
+app.use('/v1', api);
 
-// calls and uses launchesRouter function from the launches/launches.router
-app.use('/launches',launchesRouter);
 
 // gets and renders the Applications from page in the index.html file using /*
 app.get('/*', (req, res) => {

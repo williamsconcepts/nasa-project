@@ -11,8 +11,8 @@ describe('Launches API', () => {
     // beforeAll(() => jest.setTimeout(90 * 1000));
 
     beforeAll (async () => {
-        await mongoConnect();
-       jest.setTimeout(90 * 1000)
+       await mongoConnect();
+       jest.setTimeout(90 * 1000);
        
     });
 

@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
-// connecting the mongoDB database
-const MONGO_URL = 'mongodb+srv://boobae:ebubedike@nasa-api.mufvbej.mongodb.net/nasa?retryWrites=true&w=majority';
+require('dotenv').config();
+
+const MONGO_URL = process.env.MONGO_URL;
 
 mongoose.set('strictQuery', false);
 

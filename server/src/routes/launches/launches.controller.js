@@ -7,10 +7,16 @@ const {
   
 } = require('../../models/launches.model');
 
+const {
+    getPagination,
+} = require('../../services/query');
+
 
 // GETS ALL THE LAUNCHES USING THE HTTP GET REQUEST FUNCTION
 async function httpGetAllLaunches(req, res) {
-    return res.status(200).json(await getAllLaunches());
+    const { skip, limit } = getPagination(req.query);
+    const launches = await getAllLaunches(skip, limit);
+    return res.status(200).json(launches);
 }
 
 

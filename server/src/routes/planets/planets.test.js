@@ -5,7 +5,7 @@ const app = require('../../app');
 describe('Test GET /planets', () => {
     test('it should respond with 201 success', async () => {
         const response = request(app)
-        .get('/planets')
+        .get('/v1/planets')
         .expect('Content-Type', /json/)
         .expect(201);
     });

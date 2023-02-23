@@ -1,21 +1,20 @@
 const request = require('supertest');
 const app = require('../../app');
-const { loadPlanetsData } = require('../../models/planets.model');
 const {
      mongoConnect,
      mongoDisconnect,
      } = require('../../services/mongo');
 
+const { 
+    loadPlanetsData,
+} = require('../../models/planets.model');
 
 describe('Launches API', () => {
-    // beforeAll(() => jest.setTimeout(90 * 1000));
-
     beforeAll (async () => {
-       await mongoConnect();
-       jest.setTimeout(90 * 30000);
+       await mongoConnect(); 
+       jest.setTimeout(90000);
        await loadPlanetsData();
-       
-         
+               
     });
 
     afterAll(async () => {

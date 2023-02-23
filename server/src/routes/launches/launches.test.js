@@ -13,7 +13,8 @@ describe('Launches API', () => {
     beforeAll (async () => {
        await mongoConnect();
        await loadPlanetsData();
-       jest.setTimeout(90 * 1000);   
+       
+         
     });
 
     afterAll(async () => {

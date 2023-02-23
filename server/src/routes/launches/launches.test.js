@@ -6,9 +6,6 @@ const {
      mongoDisconnect,
      } = require('../../services/mongo');
 
-const {
-    loadPlanetsData,
-} = require('../../models/planets.model');
 
 describe('Launches API', () => {
     // beforeAll(() => jest.setTimeout(90 * 1000));
